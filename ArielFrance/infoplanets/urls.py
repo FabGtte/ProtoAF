@@ -4,5 +4,7 @@ from . import views
 
 urlpatterns = [
     path('exoclockjson/', views.getexoclockdata),
-    path('exoclockjson/', views.is_it_json)
+    path('exoplanets/', views.planetTypeFilter),
+    path('search_planet/', views.search_planet, name="search-planet"),
+    path('<exoplanet_name>', views.show_exopl_info, name='show-exopl-info')
 ]

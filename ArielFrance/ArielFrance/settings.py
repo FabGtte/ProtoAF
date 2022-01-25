@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-npyrj9lwn3!8irgidf5ih!%bvys^hclph_@2c^(eim8(hk73w(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://vuszbmm.cluster030.hosting.ovh.net']
 
 
 # Application definition
@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 ROOT_URLCONF = 'ArielFrance.urls'
 
 TEMPLATES = [
@@ -78,12 +77,12 @@ WSGI_APPLICATION = 'ArielFrance.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ArielFrance',
-        'USER': 'fabgg',
-        'PASSWORD': '54321epacsenuR',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vuszbmmbdd',
+        'USER': 'vuszbmmbdd',
+        'PASSWORD': 'INFOplanet2022',
+        'HOST': '192.168.16.238',
+        'PORT': '3306'
     }
 }
 

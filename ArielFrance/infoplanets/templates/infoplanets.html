@@ -1,17 +1,29 @@
-<html> 
-    <body>
+<center>
+    <div>
+        <form action="{% url 'search-planet' %}" method='POST'>
 
-        <div class ="container">
-            <div class ="">
-                <br>
-                <h2>Fetch and save exoclockdata</h2>
-                <br>
-                <form action='#' method='get'>
-                    <input type="submit" class="button" value="Click" name="mybutton">
-                </form>
+            {% csrf_token %}
 
-            <p>{{exoplanets}}</p>
-            </div>
+            <input type="search" placeholder="Search exoplanet" name="searched" />
+            <button type="submit" value="Click" name="searchbutton">Search</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="">
+            <br>
+
+            </form>
+            <h2>Fetch and save exoclockdata</h2>
+            <br>
+            <form action='#' method='get'>
+                <input type="submit" class="button" value="Click" name="mybutton">
+            </form>
+            <ul>
+                {% for exoplanet in exoplanets %}
+                    <li>{{exoplanet}}</li>
+                {% endfor %}
+            </ul>
         </div>
-    </body>
-</html>
+    </div>
+</center>
