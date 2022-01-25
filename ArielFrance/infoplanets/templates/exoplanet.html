@@ -1,0 +1,67 @@
+{% block content %}
+
+<center>
+
+    <h2>{{exoplanet.name}}</h2>
+    <br />
+    <table>
+        <tr>
+            <td> Planet Type </td>
+            <td> {{exoplanet.type}} </td>
+        </tr>
+        <tr>
+            <td> Priority </td>
+            <td> {{exoplanet.priority}} </td>
+        </tr>
+        <tr>
+            <td> Total Observations </td>
+            <td> {{exoplanet.total_observations}} </td>
+        </tr>
+        <tr>
+            <td> Recent Observations </td>
+            <td> {{exoplanet.recent_observations}} </td>
+        </tr>
+        <tr>
+            <td> RA<sub>J2000</sub> </td>
+            <td> {{exoplanet.ra_j2000}} </td>
+        </tr>
+        <tr>
+            <td> DEC<sub>J2000</sub> </td>
+            <td> {{exoplanet.dec_j2000}} </td>
+        </tr>
+        <tr>
+            <td> V mag </td>
+            <td> {{exoplanet.v_mag}} </td>
+        </tr>
+        <tr>
+            <td> R mag </td>
+            <td> {{exoplanet.r_mag}} </td>
+        </tr>
+        <tr>
+            <td> Gaia G mag </td>
+            <td> {{exoplanet.gaia_g_mag}} </td>
+        </tr>
+        <tr>
+            <td> Depth mmag </td>
+            <td> {{exoplanet.depth_mmag}} </td>
+        </tr>
+        <tr>
+            <td> Transit duration <sub>hours</sub> </td>
+            <td> {{exoplanet.transit_duration_hours}} </td>
+        </tr>
+        <tr>
+            <td> Ephemeris mid time BJD<sub>TDB</sub> </td>
+            <td> {{exoplanet.ephemeris_mid_time_bjd_tdb}}±{{exoplanet.ephemeris_mid_time_uncertainty}} </td>
+        </tr>
+        <tr>
+            <td> Ephemeris period <sub>days</sub> </td>
+            <td> {{exoplanet.ephemeris_period_days}}±{{exoplanet.ephemeris_period_uncertainty}} </td>
+        </tr>
+        <tr>
+            <td> Ephemeris current oc time </td>
+            <td> {{exoplanet.ephemeris_current_oc_min}} </td>
+        </tr>
+
+</center>
+
+{% endblock %}

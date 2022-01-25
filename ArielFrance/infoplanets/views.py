@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Exoplanet
 import json
@@ -41,6 +42,31 @@ def getexoclockdata(request):
         allexoplanets = Exoplanet.objects.all().order_by('name')
 
     return render(request, 'infoplanets.html', {'exoplanets' : list(allexoplanets)})
+
+def show_exopl_info(request, exoplanet_name):
+
+    exoplanet = Exoplanet.objects.get(name=exoplanet_name)
+    return render(request, 'exoplanet.html', {'exoplanet': exoplanet})
+
+
+def planetTypeFilter(request):
+
+    #if request.GET.get('plTypeCheckbox') == 'Checked' & request.GET.get('submitbutton') == 'Submit':
+     #   QuerySet = Exoplanet.objects.all().filter(type)
+
+    return render(request, 'exoplanets.html', )
+
+
+def search_planet(request):
+
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        exoplanet = Exoplanet.objects.filter(name__icontains = searched)
+        print(searched)
+        print(exoplanet)
+
+        return render(request, 'search_planet.html', {'searched': searched, 'exoplanet': exoplanet})
+
 
 def is_it_json(serialized_exoclockdata):
     try:

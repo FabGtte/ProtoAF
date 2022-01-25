@@ -1,0 +1,16 @@
+{% block content %}
+    <center>
+   
+            {% if searched %}
+                <h2>Searched for "{{searched}}"</h2>
+            {% else %}
+                <h2>No search string</h2>
+            {% endif %}
+                <br>
+                    {% for info in exoplanet  %}
+                        <a href="{% url 'show-exopl-info' info.name %}"> {{ info }} </a> <br/>
+                    {% endfor %}
+                <br>
+    
+    </center>
+{% endblock %}
