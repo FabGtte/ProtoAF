@@ -65,7 +65,7 @@ class Star (models.Model):
     dec = models.CharField(max_length=255)
     stellar_distance = models.DecimalField(max_digits=13, decimal_places=9, null=True, blank=True)
     parallax = models.DecimalField(max_digits=13, decimal_places=9, null=True, blank=True)
-    parallax_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    parallax_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
     ecliptic_latitude = models.DecimalField(max_digits=10, decimal_places=6, null=True, blank=True)
     ecliptic_longiude = models.DecimalField(max_digits=10, decimal_places=6, null=True, blank=True)
@@ -75,84 +75,93 @@ class Star (models.Model):
     orbiting_planets = models.ForeignKey(Exoplanet, on_delete=models.PROTECT)
 
     total_proper_motion = models.DecimalField(max_digits=12, decimal_places=9, null=True, blank=True)
-    total_proper_motion_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    total_proper_motion_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
     proper_motion_ra = models.DecimalField(max_digits=12, decimal_places=9, null=True, blank=True)
-    proper_motion_ra_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    proper_motion_ra_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
     
     proper_motion_dec = models.DecimalField(max_digits=12, decimal_places=9, null=True, blank=True)
-    proper_motion_dec_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    proper_motion_dec_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
     
     effective_temperature = models.DecimalField(max_digits=8, decimal_places=4, null=True, blank=True)
-    effective_temperature_moe = models.DecimalField(max_digits=8, decimal_places=4, null=True, blank=True)
+    effective_temperature_err = models.DecimalField(max_digits=8, decimal_places=4, null=True, blank=True)
 
     spectral_type = models.CharField(max_length=5, null=True, blank=True)
 
     metallicity = models.DecimalField(max_digits=5, decimal_places=4, null=True, blank=True)
-    metallicity_moe = models.DecimalField(max_digits=5, decimal_places=4, null=True, blank=True)
+    metallicity_err = models.DecimalField(max_digits=5, decimal_places=4, null=True, blank=True)
 
     density = models.DecimalField(max_digits=10, decimal_places=8, null=True, blank=True)
-    density_moe = models.DecimalField(max_digits=9, decimal_places=8, null=True, blank=True)
+    density_err = models.DecimalField(max_digits=9, decimal_places=8, null=True, blank=True)
 
     mass = models.DecimalField(max_digits=9, decimal_places=5, null=True, blank=True)
-    mass_moe = models.DecimalField(max_digits=7, decimal_places=5, null=True, blank=True)
+    mass_err = models.DecimalField(max_digits=7, decimal_places=5, null=True, blank=True)
 
     radius = models.DecimalField(max_digits=8, decimal_places=4, null=True, blank=True)
-    radius_moe = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    radius_err = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
 
     surface_gravity = models.DecimalField(max_digits=10, decimal_places=8, null=True, blank=True)
-    surface_gravity_moe = models.DecimalField(max_digits=9, decimal_places=8, null=True, blank=True)
+    surface_gravity_err = models.DecimalField(max_digits=9, decimal_places=8, null=True, blank=True)
 
     luminosity = models.DecimalField(max_digits=10, decimal_places=8, null=True, blank=True)
-    luminosity_moe = models.DecimalField(max_digits=9, decimal_places=8, null=True, blank=True)
+    luminosity_err = models.DecimalField(max_digits=9, decimal_places=8, null=True, blank=True)
 
     radial_velocity = models.DecimalField(max_digits=18, decimal_places=15, null=True, blank=True)
-    radial_velocity_moe = models.DecimalField(max_digits=16, decimal_places=15, null=True, blank=True)
+    radial_velocity_err = models.DecimalField(max_digits=16, decimal_places=15, null=True, blank=True)
 
     age = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
     age_moe = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
     rotational_velocity = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-    rotational_velocity_moe = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+    rotational_velocity_err = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
     rotation_period = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
-    rotation_period_moe = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+    rotation_period_err = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
 
 
     #Photometry
-    mV = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mV_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    bmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    bmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
-    mTESS = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mTESS_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    gmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    gmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
-    mJ = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mJ_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    gaiamag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    gaiamag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
-    mH = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mH_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    hmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    hmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
-    mKS = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mKS_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    imag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    imag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
 
-    mW1 = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mW1_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
-
-    mW2 = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mW2_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
-
-    mW3 = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mW3_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
-
-    mW4 = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mW4_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
-
-    mGAIA = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mGAIA_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
-
-    mB = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
-    mB_moe = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
-
+    jmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    jmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    kmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    kmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    rmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    rmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    vmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    vmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    tmag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    tmag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    w1mag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    w1mag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    w2mag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    w2mag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    w3mag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    w3mag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+    
+    w4mag = models.DecimalField(max_digits=6, decimal_places=4, null=True, blank=True)
+    w4mag_err = models.DecimalField(max_digits=10, decimal_places=9, null=True, blank=True)
+     
     def __str__(self):
         return self.name
 
