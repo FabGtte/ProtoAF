@@ -4,6 +4,10 @@ from .models import Exoplanet, Star
 import json
 import requests
 
+def render_infoplanetshtml(request):
+
+    return render(request, 'index.html')
+
 def getexoclockdata(request):
 
     allexoplanets = {}
@@ -41,11 +45,11 @@ def getexoclockdata(request):
 
         allexoplanets = Exoplanet.objects.all().order_by('name')
 
-    return render(request, 'infoplanets.html', {'exoplanets' : list(allexoplanets)})
+    return render(request, 'index.html', {'exoplanets' : list(allexoplanets)})
 
 def getnasadata(request):
 
-    if request.GET.get('mybutton')=='Click':
+    if request.GET.get('')=='':
         url = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+*+from+ps&format=json'
         nasa_response = requests.get(url)
         serialized_nasadata = nasa_response.json()
@@ -132,6 +136,11 @@ def show_exopl_info(request, exoplanet_name):
     exoplanet = Exoplanet.objects.get(name=exoplanet_name)
     return render(request, 'exoplanet.html', {'exoplanet': exoplanet})
 
+def show_host_star_info(request, host_star_name):
+
+    host_star = Star.objects.get(name=host_star_name)
+    return render(request, 'exoplanet.html', {'host star': host_star})
+
 
 def planetTypeFilter(request):
 
@@ -150,23 +159,6 @@ def search_planet(request):
         print(exoplanet)
 
         return render(request, 'search_planet.html', {'searched': searched, 'exoplanet': exoplanet})
-
-
-def is_it_json(serialized_exoclockdata):
-    try:
-        json.loads(serialized_exoclockdata)
-    except ValueError as nope:
-        return False
-    return True
-
-def checker(request):
-    jsonbooleanchecker = 'No info'
-    if is_it_json == True:
-        jsonbooleanchecker = 'JSON'
-    if is_it_json == False: 
-        jsonbooleanchecker = 'Not a JSON'
-
-    return render(request, 'infoplanets.html', {'isitajson' : jsonbooleanchecker})
 
     
 
