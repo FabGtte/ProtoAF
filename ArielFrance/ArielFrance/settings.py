@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-npyrj9lwn3!8irgidf5ih!%bvys^hclph_@2c^(eim8(hk73w(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['infoplanet.arielmission.fr', 'www.infoplanet.arielmission.fr', 'vuszbmm.cluster030.hosting.ovh.net']
 
 
 # Application definition
