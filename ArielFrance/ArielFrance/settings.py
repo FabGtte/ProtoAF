@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'ArielFrance.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ArielFrance',
-        'USER': 'fabgtte',
-        'PASSWORD': '54321epacsenuR',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vuszbmmbdd',
+        'USER': 'vuszbmmbdd',
+        'PASSWORD': 'INFOplanet2022',
+        'HOST': '192.168.16.238',
+        'PORT': '3306'
     }
 }
 
