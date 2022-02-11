@@ -1,5 +1,6 @@
-{% block content %}
-    <center>
+
+            {% include 'index.html' %}
+<center>
    
             {% if searched %}
                 <h2>Searched for "{{searched}}"</h2>
@@ -12,5 +13,4 @@
                     {% endfor %}
                 <br>
     
-    </center>
-{% endblock %}
+</center>
